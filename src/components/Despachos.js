@@ -1,26 +1,26 @@
 import React, { useEffect } from 'react';
-import Producto from './Producto';
+import Despacho from './Despacho';
 
 // Redux
 import { useSelector, useDispatch } from 'react-redux';
-import { obtenerProductosAction } from '../actions/productoActions'
+import { obtenerDespachosAction } from '../actions/despachoActions'
 
 
-const Productos = () => {
+const Despachos = () => {
 
     const dispatch = useDispatch();
 
     useEffect(() => {
         // consultar la api
-        const cargarProductos = () => dispatch( obtenerProductosAction());
-        cargarProductos();
+        const cargarDespachos = () => dispatch( obtenerDespachosAction());
+        cargarDespachos();
         // eslint-disable-next-line
     }, [])
 
     // Obtener el state
-    const productos = useSelector(state => state.productos.productos);
-    const error = useSelector(state => state.productos.error);
-    const loading = useSelector(state => state.productos.loading)
+    const despachos = useSelector(state => state.despachos.despachos);
+    const error = useSelector(state => state.despachos.error);
+    const loading = useSelector(state => state.despachos.loading)
 
     
 
@@ -41,11 +41,11 @@ const Productos = () => {
                 </tr>
             </thead>
             <tbody>
-                { productos.lenght === 0 ? ' No hay productos' : (
-                    productos.map( producto => (
-                        <Producto
-                            key={producto.id}
-                            producto={producto}
+                { despachos.lenght === 0 ? ' No hay despachos' : (
+                    despachos.map( despacho => (
+                        <Despacho
+                            key={despacho.id}
+                            despacho={despacho}
                         />
                     ))
                 )}
@@ -58,4 +58,4 @@ const Productos = () => {
      );
 }
  
-export default Productos;
+export default Despachos;

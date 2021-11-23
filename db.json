@@ -1,5 +1,5 @@
 {
-  "productos": [
+  "despachos": [
     {
       "id": 1,
       "nombre": "Jugo de Zanahoria 22",
@@ -49,11 +49,6 @@
       "nombre": "Yerba Mate Colon",
       "precio": 2300,
       "id": 14
-    },
-    {
-      "nombre": "Balde con Mopa Giratoria",
-      "precio": 50000,
-      "id": 15
     }
   ]
 }

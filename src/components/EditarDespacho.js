@@ -1,46 +1,46 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { editarProductoAction } from '../actions/productoActions';
+import { editarDespachoAction } from '../actions/despachoActions';
 import { useHistory } from 'react-router-dom';
 
-const EditarProducto = () => {
+const EditarDespacho = () => {
 
     const history = useHistory();
 
     // Dispatch para mandar a llamar al action
     const dispatch = useDispatch();
 
-    const [ producto, guardarProducto ] = useState({
+    const [ despacho, guardarDespacho ] = useState({
         nombre: '',
         precio: ''
     })
 
-    // producto a editar
-    const productoEditar = useSelector(state => state.productos.productoeditar);
-    /* if(!productoEditar) return null; */
+    // despacho a editar
+    const despachoEditar = useSelector(state => state.despachos.despachoeditar);
+    /* if(!despachoEditar) return null; */
 
     // Llenar el state automaticamente con el useEffect
     useEffect(() => {
-        guardarProducto(productoEditar);
-    }, [productoEditar]);
+        guardarDespacho(despachoEditar);
+    }, [despachoEditar]);
 
     // Recordar nunca colocar un return antes de un useEffect
-    if(!productoEditar) return null;
+    if(!despachoEditar) return null;
 
     // Leer los datos del formulario
     const onChangeFormulario = e => {
-        guardarProducto({
-            ...producto,
+        guardarDespacho({
+            ...despacho,
             [e.target.name] : e.target.value
         })
     }
 
-    const { nombre, precio } = producto;
+    const { nombre, precio } = despacho;
 
-    const submitEditarProducto = e => {
+    const submitEditarDespacho = e => {
         e.preventDefault();
 
-        dispatch( editarProductoAction(producto) );
+        dispatch( editarDespachoAction(despacho) );
 
         history.push('/');
     }
@@ -55,14 +55,14 @@ const EditarProducto = () => {
                 <div className="card">
                     <div className="card-body">
                         <h2 className="text-center mb-4 font-weight-bold">
-                            Editar Producto
+                            Editar Despacho
                         </h2>
 
                         <form
-                            onSubmit={submitEditarProducto}
+                            onSubmit={submitEditarDespacho}
                         >
                             <div className="form-groud mt-3">
-                                <label>Nombre Producto</label>
+                                <label>Nombre Despacho</label>
                                 <input
                                     type="text"
                                     className="form-control"
@@ -102,4 +102,4 @@ const EditarProducto = () => {
     );
 }
  
-export default EditarProducto;
+export default EditarDespacho;

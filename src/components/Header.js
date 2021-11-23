@@ -11,9 +11,13 @@ const Header = () => {
                 </h1>
             </div>
 
-            <Link to ={"/productos/nuevo"}
-                className="btn btn-danger nuevo-post d-block d-md-inline-block"
+            <Link to ={"/despachos/nuevo"}
+                className="btn btn-danger  mr-4 nuevo-post d-block d-md-inline-block"
             >Agregar Despacho &#43;</Link>
+
+            <Link to ={"/login"}
+                className="btn btn-danger  nuevo-post d-block d-md-inline-block"
+            >Login</Link>
 
 
         </nav>
